@@ -824,7 +824,7 @@ details.ra[open] summary::after{content:"–"}
 .lg-size{display:flex;align-items:flex-end;gap:10px}
 .lg-size span{display:grid;justify-items:center;gap:3px;font-variant-numeric:tabular-nums}
 .lg-size i{display:block;border-radius:50%;border:1.5px solid var(--grey);background:color-mix(in srgb,var(--grey) 10%,transparent)}
-.preview-note{position:absolute;z-index:500;top:52px;right:max(12px,env(safe-area-inset-right,0px));max-width:260px;font-size:12px;color:var(--ink-2);background:var(--white);border:1px solid var(--line);border-radius:8px;padding:6px 9px}
+.preview-note{position:absolute;z-index:500;bottom:96px;right:max(12px,env(safe-area-inset-right,0px));max-width:260px;font-size:12px;color:var(--ink-2);background:var(--white);border:1px solid var(--line);border-radius:8px;padding:6px 9px}
 
 .leaflet-control-zoom a{color:var(--navy)!important;font-family:var(--font-display)}
 .leaflet-bar{border:1px solid var(--line)!important;border-radius:10px!important;overflow:hidden;box-shadow:0 4px 14px -8px rgba(15,36,64,.45)!important}
@@ -905,6 +905,116 @@ details.ra[open] summary::after{content:"–"}
 }
 /* camada "Claro": OpenStreetMap em tons neutros, levemente azulados, para os pontos de risco se destacarem */
 .tl-claro{filter:grayscale(1) sepia(.18) hue-rotate(178deg) saturate(.9) brightness(1.06) contrast(.86)}
+
+/* ===== modos de visualização ===== */
+[hidden]{display:none!important}
+.ctl-tl{top:12px;left:max(12px,env(safe-area-inset-left,0px));z-index:600}
+.seg-mode button{display:inline-flex;align-items:center;gap:5px}
+.fab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.layers-pop{position:absolute;z-index:700;top:56px;right:max(12px,env(safe-area-inset-right,0px));width:min(330px,calc(100% - 24px));background:var(--white);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 18px 40px -18px rgba(15,36,64,.55);padding:12px 14px;display:grid;gap:10px;font-size:13.5px}
+.layers-pop label{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 9px;align-items:start;cursor:pointer;color:var(--ink)}
+.layers-pop label input{margin:3px 0 0;width:16px;height:16px;min-height:0;accent-color:var(--navy)}
+.layers-pop label small{grid-column:2;color:var(--grey);font-size:12px;line-height:1.35}
+.layers-pop label.off{cursor:default;color:var(--grey)}
+.ero-scale{grid-column:2;display:flex;flex-wrap:wrap;gap:3px 9px;font-size:11.5px;color:var(--ink-2)}
+.ero-scale span{display:inline-flex;align-items:center;gap:4px}
+.ero-scale i{width:12px;height:12px;border-radius:2px;border:1px solid rgba(0,0,0,.12)}
+.mode-card{position:absolute;z-index:520;top:58px;left:max(12px,env(safe-area-inset-left,0px));width:min(340px,calc(100% - 24px));background:color-mix(in srgb,var(--white) 96%,transparent);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 4px 14px -8px rgba(15,36,64,.45);padding:10px 12px;display:grid;gap:7px;font-size:13px;color:var(--ink-2);max-height:calc(100% - 140px);overflow:auto}
+.mode-card .eyebrow{font-size:11.5px}
+.seg-sm{justify-self:start;box-shadow:none}
+.seg-sm button{font-size:13px;padding:4px 10px}
+.tt{font-family:var(--font-body);font-size:12.5px;border-radius:8px;border:1px solid var(--line);box-shadow:0 6px 16px -8px rgba(15,36,64,.5);color:var(--ink)}
+.ra-pp{padding:12px 14px;display:grid;gap:8px;font-size:13.5px}
+.ra-pp h3{font-size:22px}
+.ra-k{font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.14em;color:var(--green)}
+.ra-pop{font-size:12.5px;color:var(--grey)}
+.ra-wrap .leaflet-popup-content{width:min(290px,78vw)!important}
+.ra-wrap a.leaflet-popup-close-button{color:var(--navy)!important}
+.ra-pp .btn{justify-self:start;cursor:pointer}
+.lg-scale{display:grid;grid-template-columns:repeat(2,auto);gap:3px 12px;font-variant-numeric:tabular-nums}
+.lg-scale span,.lg-st span{display:inline-flex;align-items:center;gap:6px}
+.lg-scale i{width:16px;height:12px;border-radius:2px}
+.lg-zero{background:#fff;border:1px solid #8A96A3}
+.lg-nd{background:#fff;border:1px dashed #8A96A3}
+.lg-st{display:grid;gap:4px}
+.lg-st .st{width:14px;height:14px;border-radius:50%}
+.lg-st i.st-igual{background:#fff;border:2px solid var(--navy)}
+.lg-st i.st-alterada{background:var(--navy)}
+.lg-st i.st-excluida{background:#fff;border:2px dashed var(--grey)}
+.lg-zn{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;align-items:center;max-width:260px}
+.lg-zn i{width:22px;height:22px;border-radius:50%;border:1.5px dashed var(--crit);background:color-mix(in srgb,var(--crit) 20%,transparent)}
+/* comparação */
+.mk-cmp .mk-c{background:#fff;color:var(--navy);border-color:var(--navy)}
+.mk-cmp.st-alterada .mk-c{background:var(--navy);color:#fff;border-color:#fff}
+.mk-cmp.st-excluida .mk-c{background:rgba(255,255,255,.9);color:var(--grey);border:2px dashed var(--grey)}
+.mk-cmp.st-excluida .mk-n{background:var(--grey)}
+.cmp-t{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.cmp-t th,.cmp-t td{padding:4px 6px;border-bottom:1px solid var(--line-2);text-align:right}
+.cmp-t th:first-child{text-align:left;font-weight:600;color:var(--ink-2)}
+.cmp-t thead th{font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey)}
+.cmp-t td.up{color:var(--crit);font-weight:700}
+.cmp-t td.dn{color:var(--green);font-weight:700}
+.cmp-sum,.cmp-src,.cmp-n{font-size:12.5px;line-height:1.45}
+.cmp-src{color:var(--grey)}
+.st-pill.st-igual{background:#fff;color:var(--navy);border:0}
+.st-pill.st-alterada{background:var(--leaf);color:var(--ink)}
+.st-pill.st-excluida{background:#DCE6F2;color:var(--ink)}
+.st-pill.st-nova{background:var(--leaf);color:var(--ink)}
+/* matriz */
+.matrix{position:absolute;inset:0;z-index:510;background:var(--off) var(--waves) repeat-x 0 0;background-size:85px 140px;overflow:auto;padding:64px max(16px,env(safe-area-inset-right,0px)) 24px max(16px,env(safe-area-inset-left,0px))}
+.mapwrap.is-matrix .ctl-tr,.mapwrap.is-matrix .leaflet-control-container,.mapwrap.is-matrix .preview-note{display:none}
+.mx-head{max-width:760px;margin-bottom:14px;display:grid;gap:6px}
+.mx-head h2{font-size:30px}
+.mx-head p{font-size:14px;color:var(--ink-2)}
+.mx-scroll{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:var(--r);max-width:100%}
+.mx{border-collapse:separate;border-spacing:3px;font-size:13px;margin:4px}
+.mx th,.mx td{padding:0}
+.mx thead th{font-weight:600;color:var(--ink-2);vertical-align:bottom}
+.mx-g{font-family:var(--font-display);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--green);padding:4px 2px!important;text-align:center;line-height:1.15;max-width:120px}
+.mx-g small{display:block;font-family:var(--font-body);font-size:11px;letter-spacing:0;text-transform:none;color:var(--grey-2);font-weight:500}
+.mx-ch{width:34px}
+.mx-ch span{display:flex;flex-direction:column;align-items:center;gap:5px;padding-top:4px}
+.mx-ch .ico{width:18px;height:18px;color:var(--navy)}
+.mx-ch em{font-style:normal;writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;line-height:1.1;white-space:nowrap;max-height:150px}
+.mx-rh{position:sticky;left:0;z-index:1;background:var(--white);text-align:left;min-width:220px;max-width:280px;padding:3px 10px 3px 4px!important}
+th.mx-rh{font-weight:500}
+thead .mx-rh,tfoot .mx-rh{font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey)}
+tbody .mx-rh{display:flex;align-items:center;gap:9px}
+.mx-badge{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;font-family:var(--font-display);font-weight:700;font-size:12.5px}
+.mx-ra{display:grid;min-width:0;line-height:1.2}
+.mx-ra b{font-family:var(--font-display);font-size:15px;color:var(--navy)}
+.mx-ra small{font-size:12px;color:var(--grey);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mx-c{width:34px;height:30px;border-radius:4px;background:var(--line-2)}
+.mx-c.on{background:var(--navy)}
+.mx-c i{display:block}
+.mx tbody tr{cursor:pointer}
+.mx tbody tr:hover .mx-c:not(.on),.mx tbody tr:focus-visible .mx-c:not(.on){background:var(--tn)}
+.mx tbody tr:hover .mx-c.on,.mx tbody tr:focus-visible .mx-c.on{background:var(--green)}
+.mx tbody tr:hover .mx-rh,.mx tbody tr:focus-visible .mx-rh{background:var(--tg)}
+.mx tbody tr:focus-visible{outline:none}
+.mx-tot{min-width:86px;padding-left:8px!important;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.mx-tot{display:flex;align-items:center;gap:6px;height:30px}
+.mx-bar{flex:1;height:8px;border-radius:4px;background:var(--line-2);overflow:hidden;min-width:40px}
+.mx-bar i{display:block;height:100%;background:var(--navy-2);border-radius:4px}
+.mx-sum{text-align:center;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;padding-top:6px!important}
+.mapwrap.is-zonas .mk .mk-c{transform:scale(.42);box-shadow:0 0 0 2px #fff}
+.mapwrap.is-zonas .mk .mk-c svg{opacity:0}
+.mapwrap.is-zonas .mk .mk-n{right:auto;left:62%;bottom:58%}
+.disclaimer{font-size:12.5px;background:var(--tn);color:var(--ink-2);border-radius:8px;padding:8px 10px}
+.foot-note{font-size:13px;opacity:.85}
+@media (max-width:1180px){
+  .ctl-tl{top:58px}
+  .mode-card{top:104px}
+  .matrix{padding-top:104px}
+}
+@media (max-width:880px){
+  .ctl-tl{right:max(12px,env(safe-area-inset-right,0px));overflow-x:auto;scrollbar-width:none}
+  .seg-mode{flex:none}
+  .seg-mode button{padding:5px 9px;font-size:13px;white-space:nowrap}
+  .mode-card{font-size:12.5px;max-height:38%}
+  .mx-head h2{font-size:24px}
+  .mx-rh{min-width:170px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -978,16 +1088,18 @@ details.ra[open] summary::after{content:"–"}
         <span class="eyebrow">Fonte</span>
         <p><b>Portaria nº 63, de 14 de setembro de 2026</b>, da Secretaria de Estado de Segurança Pública do Distrito Federal, que torna público o Demonstrativo Social 2026. Publicada no DODF nº 172, de 16/09/2026, seção 1, p. 18.</p>
         <p><a class="btn js-doc" href="docs/portaria-63-2026.pdf" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>Consultar a Portaria (PDF)</a></p>
-        <p>Os dados reproduzem o quadro do Art. 1º, com as coordenadas como publicadas. Este mapa não substitui o texto oficial.</p>
+        <p class="disclaimer"><b>Reprodução independente.</b> Este mapa não é um produto da Defesa Civil do DF: ele reproduz o quadro do Art. 1º da Portaria, com as coordenadas como publicadas, e não substitui o texto oficial.</p>
         <p>O mapa lê os dados do arquivo <a href="data/areas.json"><code>data/areas.json</code></a> a cada acesso. Para atualizar as áreas, basta editar esse arquivo no repositório.</p>
         <p>Mapa base: dados © colaboradores do <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> (licença ODbL), estilo claro do <a href="https://openfreemap.org">OpenFreeMap</a> / OpenMapTiles, exibido com Leaflet e MapLibre. Imagens de satélite: Esri, Maxar, Earthstar Geographics.</p>
         <p>Iconografia elaborada para este mapa com base nos grupos de desastres da Cobrade e na divisão entre riscos hidrológicos e geológicos usada pelo Cemaden.</p>
+        <p><b>Outras visualizações.</b> Comparação com o Demonstrativo 2025: <a href="https://www.sinj.df.gov.br/sinj/Norma/791b28e081e0497cbcf672614145f9ad/Portaria_69_28_08_2025.html" target="_blank" rel="noopener">Portaria nº 69, de 28/08/2025</a> (DODF nº 167, de 04/09/2025). População por região: Censo 2022 (IBGE), elaboração IPEDF. Limites das regiões, risco de perda de solo por erosão (ZEE-DF) e drenagem: catálogo de dados do IPEDF. Zonas indicativas: estimativa ilustrativa de 250 m² por residência.</p>
       </footer>
     </div>
     <footer class="site-foot" aria-label="Autoria">
       <svg class="foot-waves" viewBox="0 0 400 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 28 C 100 14, 200 40, 300 26 C 345 20, 375 13, 400 8 L400 46 L0 46Z" fill="#007614"/><path d="M0 38 C 110 30, 210 46, 300 37 C 345 33, 378 29, 400 26 L400 46 L0 46Z" fill="#01366F"/></svg>
       <div class="foot-in">
         <div><span class="fk">Autoria</span><p>Wagner de Jesus Martins, Fernanda Machiner, Maria Eduarda Silva, Jeferson Martins de Castro</p></div>
+        <p class="foot-note">Reprodução independente e não oficial de dados publicados no Diário Oficial do Distrito Federal.</p>
       </div>
     </footer>
   </aside>
@@ -1001,16 +1113,38 @@ details.ra[open] summary::after{content:"–"}
         <button type="button" data-base="sat" aria-pressed="false">Satélite</button>
       </div>
       <button class="fab" type="button" id="fitAll" title="Enquadrar as áreas filtradas">Ver todas</button>
+      <button class="fab" type="button" id="layersBtn" aria-expanded="false" aria-controls="layersPop">Camadas</button>
     </div>
+    <div class="ctl ctl-tl">
+      <div class="seg seg-mode" role="group" aria-label="Forma de visualização" id="modeSeg">
+        <button type="button" data-mode="pontos" aria-pressed="true">Pontos</button>
+        <button type="button" data-mode="zonas" aria-pressed="false">Zonas</button>
+        <button type="button" data-mode="regioes" aria-pressed="false">Regiões</button>
+        <button type="button" data-mode="matriz" aria-pressed="false">Matriz</button>
+        <button type="button" data-mode="comparar" aria-pressed="false">2025 × 2026</button>
+      </div>
+    </div>
+    <div class="mode-card" id="modeCard" hidden></div>
+    <div class="layers-pop" id="layersPop" hidden>
+      <span class="eyebrow">Camadas oficiais de contexto</span>
+      <label><input type="checkbox" id="ctxSetores" data-ctx="setores" disabled><span>Setores de risco da Defesa Civil</span><small id="setoresNote">Verificando…</small></label>
+      <label><input type="checkbox" id="ctxErosao" data-ctx="erosao"><span>Risco de perda de solo por erosão</span><small>Zoneamento Ecológico-Econômico do DF (ZEE-DF), via catálogo do IPEDF.</small><span class="ero-scale" id="eroScale"></span></label>
+      <label><input type="checkbox" id="ctxDrenagem" data-ctx="drenagem"><span>Rios e córregos</span><small>Trechos de drenagem do DF, catálogo do IPEDF.</small></label>
+      <label><input type="checkbox" id="ctxLimites" data-ctx="limites"><span>Limites das regiões administrativas</span><small>IPEDF.</small></label>
+    </div>
+    <section class="matrix" id="matrix" hidden aria-label="Matriz de ameaças"></section>
     <p class="preview-note" id="previewNote" hidden>Prévia offline: detalhe de rua só ao redor das 23 áreas. No site publicado o mapa carrega em todo o DF e a camada OSM fica ativa.</p>
     <div class="legend" aria-label="Legenda">
       <span class="eyebrow">Legenda</span>
+      <div id="lgBase" style="display:grid;gap:8px">
       <div class="lg-ty" id="lgType"></div>
       <div class="lg-row">
         <span><i class="lg-dot" style="--c:var(--crit)"></i>Muito alto</span>
         <span><i class="lg-dot" style="--c:var(--warn)"></i>Alto</span>
       </div>
       <div class="lg-size" id="lgSize"></div>
+      </div>
+      <div id="lgExtra"></div>
     </div>
   </main>
 </div>
@@ -1275,6 +1409,7 @@ function boot(){
     document.getElementById("bars").innerHTML = rows.map(function(r){
       return '<div class="bar"><span title="'+esc(r[0])+'">'+esc(r[0])+'</span><i style="width:'+(r[1]/max*100).toFixed(1)+'%"></i><b>'+nf.format(r[1])+'</b></div>';
     }).join("") || '<p class="empty">Sem dados no filtro atual.</p>';
+    viewsUpdate(list);
     if (refit) fit(list, true);
   }
 
@@ -1285,6 +1420,7 @@ function boot(){
 
   function openArea(n, fly){
     var a = AREAS.filter(function(x){return x.n===n;})[0]; if(!a) return;
+    if (mode !== "pontos" && mode !== "zonas") setMode("pontos");
     var m = markers[n];
     if (!layer.hasLayer(m)) { document.getElementById("fReset").click(); }
     if (window.matchMedia("(max-width:880px)").matches) document.querySelector(".mapwrap").scrollIntoView({behavior:"smooth", block:"start"});
@@ -1301,7 +1437,7 @@ function boot(){
     state.sel = n;
     if (n !== null) { var el = markers[n].getElement(); if (el) el.classList.add("sel"); }
     document.querySelectorAll(".it").forEach(function(b){ var on = +b.dataset.n === n; b.setAttribute("aria-current", String(on)); if (on && fromMap && !window.matchMedia("(max-width:880px)").matches) b.scrollIntoView({block:"nearest", behavior:"smooth"}); });
-    var h = n === null ? "" : "area-" + pad(n);
+    var h = n === null ? (mode !== "pontos" ? mode : "") : "area-" + pad(n);
     if ((location.hash.slice(1) || "") !== h) {
       try { history.replaceState(null, "", h ? "#" + h : location.pathname + location.search); } catch(err) { if (h) location.hash = h; }
     }
@@ -1314,8 +1450,313 @@ function boot(){
   // legenda de tamanho
   document.getElementById("lgSize").innerHTML = [20,200,800].map(function(p){var d=diam(p); return '<span><i style="width:'+d+'px;height:'+d+'px"></i>'+nf.format(p)+'</span>';}).join("") + '<span style="align-self:center;justify-items:start">pessoas<br>afetadas</span>';
 
+  // ===== Modos de visualização (inserido em boot) =====
+  var EXTRA_FILES = {ras:"data/ras.geojson", a2025:"data/areas-2025.json", erosao:"data/zee-erosao.geojson", drenagem:"data/drenagem.geojson", setores:"data/setores.geojson"};
+  var extraCache = {};
+  function getData(k){
+    if (!extraCache[k]) {
+      extraCache[k] = (window.EXTRA && (k in window.EXTRA)) ? Promise.resolve(window.EXTRA[k]) :
+        fetch(EXTRA_FILES[k], {cache:"no-cache"}).then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
+      extraCache[k] = extraCache[k].catch(function(){ return null; });
+    }
+    return extraCache[k];
+  }
+  var HEX = {"Muito alto":"#B3261E", "Alto":"#B86400"};
+  var MODES = {
+    pontos:{t:"Pontos"}, zonas:{t:"Zonas"}, regioes:{t:"Regiões"}, matriz:{t:"Matriz"}, comparar:{t:"2025 × 2026"}
+  };
+  var mode = "pontos";
+  var mapwrap = document.querySelector(".mapwrap");
+  var modeSeg = document.getElementById("modeSeg");
+  var modeCard = document.getElementById("modeCard");
+  var lgBase = document.getElementById("lgBase"), lgExtra = document.getElementById("lgExtra"), legendEl = document.querySelector(".legend");
+  var matrixEl = document.getElementById("matrix");
+  map.createPane("ctx"); map.getPane("ctx").style.zIndex = 350;
+  map.createPane("zonas"); map.getPane("zonas").style.zIndex = 420;
+  map.createPane("ras"); map.getPane("ras").style.zIndex = 380;
+
+  function raKey(s){
+    var k = norm(s).toUpperCase().replace(/[^A-Z0-9]+/g, " ").trim();
+    return ({"RIACHO FUNDO I":"RIACHO FUNDO", "SETOR HABITACIONAL AGUA QUENTE":"AGUA QUENTE"})[k] || k;
+  }
+  function signed(v){ return (v > 0 ? "+" : v < 0 ? "−" : "") + nf.format(Math.abs(v)); }
+
+  // ---- B. Zonas indicativas ----
+  var ZONE_M2 = 250; // m² por residência (lote com circulação) – parâmetro ilustrativo
+  var zonesLayer = L.layerGroup(), zones = {};
+  AREAS.forEach(function(a){
+    var r = Math.sqrt(a.res * ZONE_M2 / Math.PI);
+    var c = L.circle([a.dlat, a.dlng], {pane:"zonas", radius:r, color:HEX[a.classe], weight:1.5, dashArray:"5 4", fillColor:HEX[a.classe], fillOpacity:.22,
+      className:"zn " + (a.classe === "Muito alto" ? "zn-ma" : "zn-a")});
+    c.bindTooltip("Zona indicativa da área " + a.n + " · raio ≈ " + nf.format(Math.round(r)) + " m", {sticky:true, className:"tt"});
+    c.on("click", function(){ openArea(a.n, false); });
+    zones[a.n] = c;
+  });
+
+  // ---- C. Camadas oficiais de contexto ----
+  var ERO = ["#F3EBDD", "#E3CFA8", "#C9A66B", "#A07636", "#6E4B17"];
+  var ctx = {};
+  function ctxLayer(k){
+    if (ctx[k]) return Promise.resolve(ctx[k]);
+    return getData(k === "limites" ? "ras" : k).then(function(gj){
+      if (!gj || !gj.features || !gj.features.length) { ctx[k] = null; return null; }
+      var lyr;
+      if (k === "erosao") lyr = L.geoJSON(gj, {pane:"ctx", style:function(f){ return {stroke:false, fillColor:ERO[f.properties.classe-1], fillOpacity:.55}; },
+        onEachFeature:function(f, l){ l.bindTooltip("Risco de perda de solo por erosão: " + f.properties.rotulo.toLowerCase() + " (ZEE-DF)", {sticky:true, className:"tt"}); }});
+      else if (k === "drenagem") lyr = L.geoJSON(gj, {pane:"ctx", style:{color:"#3B78B5", weight:1.4, opacity:.85},
+        onEachFeature:function(f, l){ if (f.properties.nome) l.bindTooltip(esc(f.properties.nome), {sticky:true, className:"tt"}); }});
+      else if (k === "limites") lyr = L.geoJSON(gj, {pane:"ctx", interactive:false, style:{color:"#01366F", weight:1.2, opacity:.55, fill:false, dashArray:"4 3"}});
+      else if (k === "setores") lyr = L.geoJSON(gj, {pane:"ctx", style:function(f){ var c = HEX[f.properties.classe] || "#01366F"; return {color:c, weight:2, fillColor:c, fillOpacity:.3}; },
+        onEachFeature:function(f, l){ var p = f.properties || {}; l.bindPopup("<div class='pp-b'><b>" + esc(p.nome || "Setor de risco") + "</b><p>" + esc([p.ra, p.classe, p.fonte].filter(Boolean).join(" · ")) + "</p></div>"); }});
+      ctx[k] = lyr; return lyr;
+    });
+  }
+  var layersBtn = document.getElementById("layersBtn"), layersPop = document.getElementById("layersPop");
+  layersBtn.addEventListener("click", function(){ var open = layersPop.hidden; layersPop.hidden = !open; layersBtn.setAttribute("aria-expanded", String(open)); });
+  document.addEventListener("click", function(e){ if (!layersPop.hidden && !e.target.closest("#layersPop,#layersBtn")) { layersPop.hidden = true; layersBtn.setAttribute("aria-expanded", "false"); } });
+  document.getElementById("eroScale").innerHTML = ERO.map(function(c, i){ return '<span><i style="background:' + c + '"></i>' + ["Muito baixo","Baixo","Médio","Alto","Muito alto"][i] + '</span>'; }).join("");
+  layersPop.addEventListener("change", function(e){
+    var cb = e.target.closest("input[data-ctx]"); if (!cb) return;
+    var k = cb.dataset.ctx;
+    ctxLayer(k).then(function(l){
+      if (!l) { cb.checked = false; return; }
+      if (cb.checked) l.addTo(map); else map.removeLayer(l);
+      var any = Array.prototype.some.call(layersPop.querySelectorAll("input[data-ctx]"), function(x){ return x.checked; });
+      layersBtn.classList.toggle("on", any);
+    });
+  });
+  getData("setores").then(function(gj){
+    var ok = gj && gj.features && gj.features.length;
+    var cb = document.getElementById("ctxSetores");
+    cb.disabled = !ok;
+    document.getElementById("setoresNote").textContent = ok
+      ? nf.format(gj.features.length) + " setores carregados de data/setores.geojson."
+      : "A Defesa Civil do DF ainda não publicou os polígonos dos setores de risco. Quando houver, salve o arquivo data/setores.geojson no repositório e a camada aparece aqui.";
+  });
+
+  // ---- D. Regiões administrativas (coroplético) ----
+  var RAMP = ["#F6E1DE", "#EBB1A9", "#DA7B6F", "#C0473B", "#8E1F17"];
+  var METRIC = {
+    pes:{t:"Pessoas afetadas", br:[1, 100, 200, 300, 500], fmt:function(v){ return nf.format(Math.round(v)); }},
+    taxa:{t:"Por 10 mil habitantes", br:[0.01, 10, 25, 75, 150], fmt:function(v){ return v.toLocaleString("pt-BR", {maximumFractionDigits:1}); }}
+  };
+  var raMetric = "pes", raLayer = null, raAgg = {}, raNameByKey = {};
+  AREAS.forEach(function(a){ raNameByKey[raKey(a.ra)] = a.ra; });
+  function aggregate(list){
+    var g = {};
+    list.forEach(function(a){ var k = raKey(a.ra); var o = g[k] || (g[k] = {areas:0, res:0, pes:0, ns:[]}); o.areas++; o.res += a.res; o.pes += a.pes; o.ns.push(a.n); });
+    return g;
+  }
+  function raValue(p){
+    var o = raAgg[p.key]; if (!o) return 0;
+    if (raMetric === "pes") return o.pes;
+    return p.pop ? o.pes / p.pop * 1e4 : null;
+  }
+  function binOf(v){ var br = METRIC[raMetric].br, b = -1; for (var i = 0; i < br.length; i++) if (v >= br[i]) b = i; return b; }
+  function raStyle(f){
+    var v = raValue(f.properties);
+    if (v === null) return {color:"#8A96A3", weight:1, dashArray:"3 3", fillColor:"#FFFFFF", fillOpacity:.55};
+    if (!v) return {color:"#8A96A3", weight:.8, fillColor:"#FFFFFF", fillOpacity:.3};
+    return {color:"#FFFFFF", weight:1.2, fillColor:RAMP[binOf(v)], fillOpacity:.82};
+  }
+  function raInfo(p){
+    var o = raAgg[p.key], v = raValue(p);
+    var rows = '<div class="ra-k">' + esc(p.codigo || "") + '</div><h3>' + esc(p.nome) + '</h3>';
+    if (!o) rows += '<p>Nenhuma área de risco no Demonstrativo 2026' + (isFiltered() ? ' com os filtros atuais' : '') + '.</p>';
+    else rows += '<div class="pp-stats"><div><b>' + nf.format(o.pes) + '</b><span>pessoas afetadas</span></div><div><b>' + (p.pop ? METRIC.taxa.fmt(o.pes / p.pop * 1e4) : "–") + '</b><span>por 10 mil habitantes</span></div></div>'
+      + '<p>' + nf.format(o.areas) + (o.areas === 1 ? ' área' : ' áreas') + ' · ' + nf.format(o.res) + ' residências · áreas nº ' + o.ns.join(", ") + '</p>';
+    rows += '<p class="ra-pop">População (Censo 2022): ' + (p.pop ? nf.format(p.pop) : "sem dado próprio") + (p.nota ? '. ' + esc(p.nota) : '') + '</p>';
+    if (o) rows += '<button type="button" class="btn primary" data-ra-go="' + esc(p.key) + '">Ver as áreas desta região</button>';
+    return '<div class="ra-pp">' + rows + '</div>';
+  }
+  function buildRa(){
+    if (raLayer) return Promise.resolve(raLayer);
+    return getData("ras").then(function(gj){
+      if (!gj) return null;
+      raLayer = L.geoJSON(gj, {pane:"ras", style:raStyle, onEachFeature:function(f, l){
+        l.bindTooltip(function(){ var o = raAgg[f.properties.key], v = raValue(f.properties);
+          return '<b>' + esc(f.properties.nome) + '</b><br>' + (o ? METRIC[raMetric].t + ': ' + (v === null ? 'sem população própria' : METRIC[raMetric].fmt(v)) : 'Sem áreas de risco'); }, {sticky:true, className:"tt"});
+        l.bindPopup(function(){ return raInfo(f.properties); }, {className:"pp-wrap ra-wrap", maxWidth:300});
+        l.on("mouseover", function(){ l.setStyle({weight:2.5, color:"#01366F"}); l.bringToFront(); });
+        l.on("mouseout", function(){ raLayer.resetStyle(l); });
+      }});
+      return raLayer;
+    });
+  }
+  document.addEventListener("click", function(e){
+    var b = e.target.closest("[data-ra-go]"); if (!b) return;
+    var name = raNameByKey[b.dataset.raGo]; if (!name) return;
+    map.closePopup(); state.ra = name; raSel.value = name; setMode("pontos"); render(true);
+  });
+
+  // ---- E. Matriz de ameaças ----
+  function sortList(list){
+    return list.slice().sort(function(x, y){
+      if (state.sort === "pes") return y.pes - x.pes || x.n - y.n;
+      if (state.sort === "res") return y.res - x.res || x.n - y.n;
+      if (state.sort === "ra") return x.ra.localeCompare(y.ra, "pt-BR") || x.n - y.n;
+      return x.n - y.n;
+    });
+  }
+  function renderMatrix(list){
+    var groups = Object.keys(GRP).map(function(g){ return {g:g, hs:HAZ.filter(function(h){ return h[3] === g; })}; });
+    var cols = []; groups.forEach(function(G){ G.hs.forEach(function(h){ cols.push(h); }); });
+    var maxN = Math.max.apply(null, list.map(function(a){ return a.haz.length; }).concat([1]));
+    var h = '<div class="mx-head"><div><span class="eyebrow">Matriz de ameaças</span><h2>Quais processos ocorrem em cada área</h2>'
+      + '<p>Cada linha é uma área do Demonstrativo 2026 e cada coluna um tipo de ameaça, agrupado pela Cobrade. Clique em uma linha para vê-la no mapa. Os filtros e a ordenação do painel valem aqui.</p></div></div>';
+    if (!list.length) return h + '<p class="empty">Nenhuma área atende a esses filtros.</p>';
+    h += '<div class="mx-scroll"><table class="mx"><thead><tr><th class="mx-rh" rowspan="2" scope="col">Área</th>';
+    groups.forEach(function(G){ h += '<th scope="colgroup" colspan="' + G.hs.length + '" class="mx-g">' + GRP[G.g].t + '<small>Cobrade ' + GRP[G.g].code + '</small></th>'; });
+    h += '<th rowspan="2" scope="col" class="mx-tot">Nº de<br>ameaças</th></tr><tr>';
+    cols.forEach(function(c){ h += '<th scope="col" class="mx-ch" title="' + esc(c[1]) + (c[4] ? ' · Cobrade ' + c[4] : '') + '"><span>' + ico(c[0]) + '<em>' + esc(c[1]) + '</em></span></th>'; });
+    h += '</tr></thead><tbody>';
+    sortList(list).forEach(function(a){
+      h += '<tr data-n="' + a.n + '" tabindex="0"><th scope="row" class="mx-rh"><span class="mx-badge" style="--c:' + CLS[a.classe].c + '">' + a.n + '</span><span class="mx-ra"><b>' + esc(a.ra) + '</b><small>' + esc(a.end) + '</small></span></th>';
+      cols.forEach(function(c){ var on = a.haz.indexOf(c[0]) > -1; h += '<td class="mx-c' + (on ? ' on' : '') + '" title="Área ' + a.n + ' · ' + esc(c[1]) + (on ? ': presente' : ': não citado') + '"><i></i></td>'; });
+      h += '<td class="mx-tot"><span class="mx-bar"><i style="width:' + (a.haz.length / maxN * 100).toFixed(0) + '%"></i></span><b>' + a.haz.length + '</b></td></tr>';
+    });
+    h += '</tbody><tfoot><tr><th scope="row" class="mx-rh">Áreas com a ameaça</th>';
+    cols.forEach(function(c){ h += '<td class="mx-sum">' + list.filter(function(a){ return a.haz.indexOf(c[0]) > -1; }).length + '</td>'; });
+    h += '<td></td></tr></tfoot></table></div>';
+    return h;
+  }
+  matrixEl.addEventListener("click", function(e){ var tr = e.target.closest("tr[data-n]"); if (tr) { setMode("pontos"); openArea(+tr.dataset.n, true); } });
+  matrixEl.addEventListener("keydown", function(e){ var tr = e.target.closest("tr[data-n]"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); setMode("pontos"); openArea(+tr.dataset.n, true); } });
+
+  // ---- F. Comparação 2025 × 2026 ----
+  var cmpLayer = null, cmp = null;
+  var XICO = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg>';
+  var ST = {igual:"Sem alteração", alterada:"Alterada", excluida:"Não consta em 2026"};
+  function buildCmp(){
+    if (cmpLayer) return Promise.resolve(cmpLayer);
+    return getData("a2025").then(function(j){
+      if (!j) return null;
+      var a25 = j.areas || j; cmp = {meta:j, a25:a25, items:[]};
+      AREAS.forEach(function(a){
+        var prev = a25.filter(function(p){ return p.par === a.n; });
+        var st = !prev.length ? "nova" : prev.length > 1 ? "alterada" :
+          (prev[0].res === a.res && prev[0].pes === a.pes && prev[0].classe === a.classe ? "igual" : "alterada");
+        cmp.items.push({a:a, prev:prev, st:st, lat:a.dlat, lng:a.dlng, pes:a.pes});
+      });
+      a25.filter(function(p){ return p.par === null || p.par === undefined; }).forEach(function(p){
+        cmp.items.push({p:p, prev:[p], st:"excluida", lat:p.lat, lng:p.lng, pes:p.pes});
+      });
+      ST.nova = "Nova em 2026";
+      cmpLayer = L.layerGroup();
+      cmp.items.forEach(function(it){
+        var d = diam(it.pes), lab = it.a ? it.a.n : it.p.n;
+        var inner = it.st === "excluida" ? XICO : ico(it.a.grp);
+        var icon = L.divIcon({className:"mk mk-cmp st-" + it.st, iconSize:[d, d], iconAnchor:[d/2, d/2], popupAnchor:[0, -d/2 + 2],
+          html:'<span class="mk-c">' + inner + '</span><span class="mk-n">' + (it.st === "excluida" ? "2025·" : "") + lab + '</span>'});
+        it.m = L.marker([it.lat, it.lng], {icon:icon, zIndexOffset:1000 - it.pes, riseOnHover:true,
+          title:(it.a ? "Área " + it.a.n + " · " + it.a.ra : "Área " + it.p.n + " de 2025 · " + it.p.ra) + " · " + ST[it.st]});
+        it.m.bindPopup(function(){ return cmpPopup(it); }, {className:"pp-wrap", maxWidth:340, minWidth:250, autoPanPaddingTopLeft:[20, 120]});
+      });
+      return cmpLayer;
+    });
+  }
+  function cmpPopup(it){
+    var a = it.a, p0 = it.prev, h;
+    var ra = a ? a.ra : it.p.ra, end = a ? a.end : it.p.end;
+    var res25 = p0.reduce(function(s, p){ return s + p.res; }, 0), pes25 = p0.reduce(function(s, p){ return s + p.pes; }, 0);
+    h = '<div class="pp-h cmp-h"><div class="pp-k"><span class="pp-n">' + (a ? 'Área ' + pad(a.n) + ' em 2026' : 'Área ' + pad(it.p.n) + ' em 2025') + '</span><span class="pp-cls st-pill st-' + it.st + '">' + ST[it.st] + '</span></div><h3>' + esc(ra) + '</h3><p class="pp-end">' + esc(end) + '</p></div><div class="pp-b">';
+    h += '<table class="cmp-t"><thead><tr><th></th><th>2025</th><th>2026</th><th>Variação</th></tr></thead><tbody>';
+    function row(lbl, v25, v26){ var d = (v26 === null ? -v25 : v26 - v25); return '<tr><th scope="row">' + lbl + '</th><td>' + nf.format(v25) + '</td><td>' + (v26 === null ? '–' : nf.format(v26)) + '</td><td class="' + (d > 0 ? 'up' : d < 0 ? 'dn' : '') + '">' + (d ? signed(d) : '=') + '</td></tr>'; }
+    if (p0.length) { h += row("Residências", res25, a ? a.res : null) + row("Pessoas", pes25, a ? a.pes : null); }
+    h += '<tr><th scope="row">Classificação</th><td>' + esc(p0.length ? p0.map(function(p){ return p.classe; }).filter(function(v, i, s){ return s.indexOf(v) === i; }).join(" / ") : "–") + '</td><td>' + esc(a ? a.classe : "–") + '</td><td></td></tr></tbody></table>';
+    if (p0.length > 1) h += '<p class="cmp-n">Em 2025 eram ' + p0.length + ' áreas, reunidas em uma só no Demonstrativo 2026: ' + p0.map(function(p){ return 'nº ' + p.n + ' (' + esc(p.end) + ', ' + p.res + ' residências)'; }).join('; ') + '.</p>';
+    else if (p0.length && a) h += '<p class="cmp-n">Corresponde à área nº ' + p0[0].n + ' do Demonstrativo 2025.</p>';
+    if (it.st === "excluida") h += '<p class="cmp-n">Constava no Demonstrativo 2025 e não aparece no quadro de 2026. Tipo de risco em 2025: ' + esc(it.p.risco) + '.</p>';
+    if (a) h += '<div class="pp-act"><button type="button" class="btn primary" data-go-area="' + a.n + '">Ver detalhes da área</button></div>';
+    return h + '</div>';
+  }
+  document.addEventListener("click", function(e){ var b = e.target.closest("[data-go-area]"); if (!b) return; var n = +b.dataset.goArea; map.closePopup(); setMode("pontos"); openArea(n, false); });
+  function passes(p){
+    if (!state.cls.has(p.classe)) return false;
+    if (state.ra && p.ra !== state.ra) return false;
+    if (state.haz.size && !HAZ.some(function(h){ return state.haz.has(h[0]) && h[2].test(p.risco); })) return false;
+    if (state.q && norm(p.ra + " " + p.end + " " + p.risco + " area " + p.n).indexOf(state.q) === -1) return false;
+    return true;
+  }
+  function cmpCard(){
+    if (!cmp) return '<p>Carregando o Demonstrativo 2025…</p>';
+    var a25 = cmp.a25, t = {a25:a25.length, a26:AREAS.length, r25:0, r26:0, p25:0, p26:0};
+    a25.forEach(function(p){ t.r25 += p.res; t.p25 += p.pes; }); AREAS.forEach(function(a){ t.r26 += a.res; t.p26 += a.pes; });
+    var c = {igual:0, alterada:0, excluida:0, nova:0}; cmp.items.forEach(function(it){ c[it.st]++; });
+    function line(l, v1, v2){ var d = v2 - v1; return '<tr><th scope="row">' + l + '</th><td>' + nf.format(v1) + '</td><td>' + nf.format(v2) + '</td><td class="' + (d > 0 ? 'up' : d < 0 ? 'dn' : '') + '">' + (d ? signed(d) : '=') + '</td></tr>'; }
+    return '<span class="eyebrow">Demonstrativos 2025 e 2026</span>'
+      + '<table class="cmp-t"><thead><tr><th></th><th>2025</th><th>2026</th><th>Variação</th></tr></thead><tbody>'
+      + line("Áreas", t.a25, t.a26) + line("Residências", t.r25, t.r26) + line("Pessoas", t.p25, t.p26) + '</tbody></table>'
+      + '<p class="cmp-sum">' + c.igual + ' sem alteração · ' + c.alterada + ' alteradas · ' + c.excluida + ' não consta em 2026' + (c.nova ? ' · ' + c.nova + ' novas' : '') + '. As duas áreas de Vila Rabelo 1 (conjuntos 6 e 7) de 2025 aparecem reunidas na área 20 de 2026.</p>'
+      + '<p class="cmp-src">Fonte 2025: <a href="' + esc(cmp.meta.url || "#") + '" target="_blank" rel="noopener">Portaria nº 69/2025 (SINJ-DF)</a>. Áreas pareadas por região e endereço.</p>';
+  }
+
+  // ---- seletor de modos, legenda e cartão ----
+  function legendFor(m){
+    if (m === "regioes") {
+      var M = METRIC[raMetric], br = M.br, s = '<span class="eyebrow">' + M.t + ' por região</span><div class="lg-scale">';
+      RAMP.forEach(function(c, i){ var lo = i === 0 ? (raMetric === "pes" ? 1 : 0) : br[i], hi = br[i + 1];
+        s += '<span><i style="background:' + c + '"></i>' + (hi ? M.fmt(lo) + '–' + M.fmt(hi - (raMetric === "pes" ? 1 : 0)) : '≥ ' + M.fmt(lo)) + '</span>'; });
+      s += '<span><i class="lg-zero"></i>Sem áreas</span>' + (raMetric === "taxa" ? '<span><i class="lg-nd"></i>Sem população própria</span>' : '') + '</div>';
+      return s;
+    }
+    if (m === "comparar") return '<span class="eyebrow">Situação em 2026</span><div class="lg-st"><span><i class="st st-igual"></i>Sem alteração</span><span><i class="st st-alterada"></i>Alterada</span><span><i class="st st-excluida"></i>Não consta em 2026</span></div>';
+    if (m === "zonas") return '<div class="lg-zn"><i></i><span>Zona indicativa: área ≈ residências × ' + ZONE_M2 + ' m². Não é o perímetro oficial do setor.</span></div>';
+    return "";
+  }
+  function cardFor(m){
+    if (m === "zonas") return '<span class="eyebrow">Zonas indicativas</span><p>Cada círculo tem área proporcional ao número de residências da Portaria (≈ ' + ZONE_M2 + ' m² por residência, contando lote e circulação). Mostra que o risco é um setor, não um ponto, mas <b>não delimita o perímetro oficial</b>. Aproxime o mapa para vê-las.</p>';
+    if (m === "regioes") return '<span class="eyebrow">Regiões administrativas</span><div class="seg seg-sm" role="group" aria-label="Medida" id="metricSeg"><button type="button" data-metric="pes" aria-pressed="' + (raMetric === "pes") + '">Pessoas afetadas</button><button type="button" data-metric="taxa" aria-pressed="' + (raMetric === "taxa") + '">Por 10 mil hab.</button></div><p>Soma das áreas de cada RA (respeita os filtros). População: Censo 2022 (IBGE, elaboração IPEDF). Limites: IPEDF.</p>';
+    if (m === "comparar") return cmpCard();
+    return "";
+  }
+  modeCard.addEventListener("click", function(e){
+    var b = e.target.closest("[data-metric]"); if (!b) return;
+    raMetric = b.dataset.metric; modeCard.innerHTML = cardFor("regioes"); lgExtra.innerHTML = legendFor("regioes"); if (raLayer) raLayer.setStyle(raStyle);
+  });
+  function setMode(m, fromHash){
+    if (!MODES[m]) m = "pontos";
+    var prev = mode, selBefore = state.sel; mode = m;
+    modeSeg.querySelectorAll("button").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.mode === m)); });
+    if (prev !== m) map.closePopup();
+    var showPts = (m === "pontos" || m === "zonas");
+    if (showPts) { if (!map.hasLayer(layer)) layer.addTo(map); } else if (map.hasLayer(layer)) map.removeLayer(layer);
+    if (m === "zonas") zonesLayer.addTo(map); else map.removeLayer(zonesLayer);
+    if (raLayer && m !== "regioes") map.removeLayer(raLayer);
+    if (cmpLayer && m !== "comparar") map.removeLayer(cmpLayer);
+    matrixEl.hidden = (m !== "matriz");
+    mapwrap.classList.toggle("is-matrix", m === "matriz");
+    mapwrap.classList.toggle("is-zonas", m === "zonas");
+    if (m === "zonas" && prev !== "zonas" && map.getZoom() < 15) {
+      var tgt = selBefore !== null ? AREAS.filter(function(a){ return a.n === selBefore; })[0] : null;
+      if (tgt) map.setView([tgt.dlat, tgt.dlng], 16);
+    }
+    legendEl.hidden = (m === "matriz");
+    lgBase.hidden = !showPts;
+    lgExtra.innerHTML = legendFor(m);
+    var card = cardFor(m); modeCard.innerHTML = card; modeCard.hidden = !card;
+    if (m === "regioes") buildRa().then(function(l){ if (l && mode === "regioes") { l.addTo(map); viewsUpdate(filtered()); } });
+    if (m === "comparar") buildCmp().then(function(l){ if (l && mode === "comparar") { l.addTo(map); modeCard.innerHTML = cardFor("comparar"); viewsUpdate(filtered()); } });
+    viewsUpdate(filtered());
+    if (!fromHash) {
+      var h = state.sel !== null && showPts ? "area-" + pad(state.sel) : (m === "pontos" ? "" : m);
+      try { history.replaceState(null, "", h ? "#" + h : location.pathname + location.search); } catch(err) {}
+    }
+    if (m !== "matriz") setTimeout(function(){ map.invalidateSize(); }, 0);
+  }
+  modeSeg.addEventListener("click", function(e){ var b = e.target.closest("button[data-mode]"); if (b) setMode(b.dataset.mode); });
+  function viewsUpdate(list){
+    var ids = {}; list.forEach(function(a){ ids[a.n] = 1; });
+    AREAS.forEach(function(a){ var z = zones[a.n]; if (ids[a.n]) { if (!zonesLayer.hasLayer(z)) zonesLayer.addLayer(z); } else if (zonesLayer.hasLayer(z)) zonesLayer.removeLayer(z); });
+    raAgg = aggregate(list); if (raLayer) raLayer.setStyle(raStyle);
+    if (mode === "matriz") matrixEl.innerHTML = renderMatrix(list);
+    if (cmpLayer) cmp.items.forEach(function(it){ var ok = it.a ? !!ids[it.a.n] : passes(it.p); if (ok) { if (!cmpLayer.hasLayer(it.m)) cmpLayer.addLayer(it.m); } else if (cmpLayer.hasLayer(it.m)) cmpLayer.removeLayer(it.m); });
+  }
+  window.addEventListener("hashchange", function(){ var h = location.hash.slice(1); if (MODES[h]) setMode(h, true); });
+
   render(false);
   fit(AREAS, false);
+  var mh = location.hash.slice(1); if (MODES[mh]) setMode(mh, true);
   var m0 = /^#area-(\d{1,2})$/.exec(location.hash);
   if (m0) setTimeout(function(){ openArea(+m0[1], true); }, 300);
   setTimeout(function(){ map.invalidateSize(); }, 200);
