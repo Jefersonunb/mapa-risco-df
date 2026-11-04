@@ -1,0 +1,273 @@
+{
+ "fonte": "Portaria nº 63, de 14 de setembro de 2026 – SSP/DF. Demonstrativo Social 2026 (Lei nº 5.861/2017). DODF nº 172, de 16/09/2026, seção 1, p. 18.",
+ "documento": "docs/portaria-63-2026.pdf",
+ "campos": {
+  "n": "nº no quadro",
+  "ra": "região administrativa",
+  "end": "endereço",
+  "lat": "latitude (WGS84)",
+  "lng": "longitude (WGS84)",
+  "risco": "tipo de risco (texto da Portaria)",
+  "classe": "classificação de risco",
+  "res": "nº de residências afetadas",
+  "pes": "estimativa do nº de pessoas afetadas",
+  "obs": "ressalva (opcional)"
+ },
+ "areas": [
+  {
+   "n": 1,
+   "ra": "Arniqueira",
+   "end": "Chácara 127B, Conjunto 5, Lote 8A, Condomínio Beija Flor",
+   "lat": -15.857451,
+   "lng": -48.015169,
+   "risco": "Enxurrada, alagamento e área suscetível a movimentação de massa",
+   "classe": "Muito alto",
+   "res": 12,
+   "pes": 48
+  },
+  {
+   "n": 2,
+   "ra": "Arniqueira",
+   "end": "Chácara 126A, Conjunto 5, Lote 3",
+   "lat": -15.861115,
+   "lng": -48.014221,
+   "risco": "Enxurrada, alagamento e área suscetível a movimentação de massa",
+   "classe": "Muito alto",
+   "res": 22,
+   "pes": 88
+  },
+  {
+   "n": 3,
+   "ra": "Arniqueira",
+   "end": "Condomínio Residencial Park dos Eucaliptos, Conjunto 05, Chácara 17",
+   "lat": -15.86334,
+   "lng": -48.018981,
+   "risco": "Enxurrada, erosão e movimentação de massa",
+   "classe": "Muito alto",
+   "res": 7,
+   "pes": 28
+  },
+  {
+   "n": 4,
+   "ra": "Fercal",
+   "end": "Quadra 4, Fercal I",
+   "lat": -15.591788,
+   "lng": -47.882718,
+   "risco": "Deslizamentos, erosão, movimentação de massa, colapso, inundações, enxurradas e alagamentos",
+   "classe": "Alto",
+   "res": 28,
+   "pes": 112
+  },
+  {
+   "n": 5,
+   "ra": "Fercal",
+   "end": "Morro Queima Lençol e Capela Nossa Senhora Rainha da Paz",
+   "lat": -15.56954,
+   "lng": -47.84783,
+   "risco": "Voçoroca, movimentação de massa, alagamento, escorregamento, incêndio e inundação",
+   "classe": "Muito alto",
+   "res": 30,
+   "pes": 120
+  },
+  {
+   "n": 6,
+   "ra": "Gama",
+   "end": "Quadra 49, Chácara 15, Setor Leste",
+   "lat": -16.024413,
+   "lng": -48.048643,
+   "risco": "Enxurradas, alagamentos, inundação, movimentação de massa e erosões",
+   "classe": "Muito alto",
+   "res": 4,
+   "pes": 16
+  },
+  {
+   "n": 7,
+   "ra": "Núcleo Bandeirante",
+   "end": "Vila Cauhy",
+   "lat": -15.872649,
+   "lng": -47.963518,
+   "risco": "Enxurradas, alagamentos, inundação e movimentação de massa",
+   "classe": "Muito alto",
+   "res": 104,
+   "pes": 416
+  },
+  {
+   "n": 8,
+   "ra": "Planaltina",
+   "end": "Núcleo Rural Córrego Arrozal, Chácara 1",
+   "lat": -15.64977,
+   "lng": -47.72662,
+   "risco": "Movimentações de massa, enxurradas e alagamentos",
+   "classe": "Alto",
+   "res": 19,
+   "pes": 76
+  },
+  {
+   "n": 9,
+   "ra": "Planaltina",
+   "end": "Vale do Amanhecer, CR85",
+   "lat": -15.68175,
+   "lng": -47.65555,
+   "risco": "Deslizamentos, movimentação de massa, inundações, enxurradas, alagamento e colapso de edificações",
+   "classe": "Alto",
+   "res": 50,
+   "pes": 200
+  },
+  {
+   "n": 10,
+   "ra": "Recanto das Emas",
+   "end": "Quadra 116 – Bacia de Contenção",
+   "lat": -15.9279,
+   "lng": -48.11451,
+   "risco": "Enxurrada, alagamento, rompimento de galeria de águas pluviais, incêndio e movimentação de massa",
+   "classe": "Alto",
+   "res": 45,
+   "pes": 180
+  },
+  {
+   "n": 11,
+   "ra": "Riacho Fundo I",
+   "end": "Placa da Mercedes, SPLM, Conjunto 7",
+   "lat": -15.879984,
+   "lng": -47.998259,
+   "risco": "Enxurradas, alagamentos e movimentação de massa",
+   "classe": "Muito alto",
+   "res": 11,
+   "pes": 44
+  },
+  {
+   "n": 12,
+   "ra": "Riacho Fundo I",
+   "end": "Colônia Agrícola Sucupira, Chácaras 24 e 14",
+   "lat": -15.894519,
+   "lng": -48.011911,
+   "risco": "Enxurradas, alagamentos e movimentação de massa",
+   "classe": "Muito alto",
+   "res": 15,
+   "pes": 60
+  },
+  {
+   "n": 13,
+   "ra": "Riacho Fundo I",
+   "end": "Colônia Agrícola Sucupira, Chácara 22",
+   "lat": -15.893983,
+   "lng": -48.013757,
+   "risco": "Enxurradas, alagamentos e movimentação de massa",
+   "classe": "Muito alto",
+   "res": 31,
+   "pes": 124
+  },
+  {
+   "n": 14,
+   "ra": "Setor Habitacional Água Quente",
+   "end": "Condomínios Nova Betânia 1 e 2",
+   "lat": -15.935352,
+   "lng": -48.233129,
+   "risco": "Enxurrada, erosão e movimentação de massa",
+   "classe": "Muito alto",
+   "res": 5,
+   "pes": 20
+  },
+  {
+   "n": 15,
+   "ra": "Setor Habitacional Água Quente",
+   "end": "Condomínio Salomão Elias",
+   "lat": -15.94236,
+   "lng": -48.24201,
+   "risco": "Enxurradas, alagamentos, inundação e movimentação de massa",
+   "classe": "Muito alto",
+   "res": 7,
+   "pes": 28
+  },
+  {
+   "n": 16,
+   "ra": "SCIA",
+   "end": "Setor de Inflamáveis",
+   "lat": -15.797132,
+   "lng": -47.981965,
+   "risco": "Tecnológico",
+   "classe": "Muito alto",
+   "res": 261,
+   "pes": 303,
+   "obs": "Os números seguem a Portaria nº 63/2026. Há inconsistência com outra versão dos dados (mapa de referência no Google My Maps), que registra 26 residências e 130 pessoas. A própria proporção publicada, cerca de 1,2 pessoa por residência, destoa das demais áreas, que usam 4 pessoas por residência. Confirme com a Defesa Civil."
+  },
+  {
+   "n": 17,
+   "ra": "Sobradinho II",
+   "end": "Condomínio Mirante da Serra, Quadra 01",
+   "lat": -15.624702,
+   "lng": -47.843237,
+   "risco": "Deslizamentos, erosão, movimentação de massa, colapso, enxurradas, alagamentos e incêndio florestal",
+   "classe": "Alto",
+   "res": 8,
+   "pes": 32
+  },
+  {
+   "n": 18,
+   "ra": "Sobradinho II",
+   "end": "Vila Rabelo 2, Conjunto A",
+   "lat": -15.61964,
+   "lng": -47.8504,
+   "risco": "Deslizamentos, erosão, movimentação de massa, colapso, inundações, enxurradas e alagamentos",
+   "classe": "Muito alto",
+   "res": 198,
+   "pes": 792,
+   "obs": "Os números seguem a Portaria nº 63/2026. Há inconsistência com outra versão dos dados (mapa de referência no Google My Maps), que registra 19 residências e 87 pessoas. Confirme com a Defesa Civil."
+  },
+  {
+   "n": 19,
+   "ra": "Sobradinho II",
+   "end": "Condomínio Mirante da Serra, Quadra 04 e Vila Rabelo 1, Conjuntos 1 e 2",
+   "lat": -15.624702,
+   "lng": -47.843237,
+   "risco": "Deslizamentos, erosão, movimentação de massa, colapso, enxurradas, alagamentos e incêndio florestal",
+   "classe": "Alto",
+   "res": 21,
+   "pes": 84
+  },
+  {
+   "n": 20,
+   "ra": "Sobradinho II",
+   "end": "Vila Rabelo 1, Conjunto 6 e 7, Quadra 1",
+   "lat": -15.6197,
+   "lng": -47.84547,
+   "risco": "Enxurrada, alagamento e área suscetível a movimentação de massa",
+   "classe": "Muito alto",
+   "res": 60,
+   "pes": 172
+  },
+  {
+   "n": 21,
+   "ra": "Sol Nascente e Pôr do Sol",
+   "end": "Chácara 74",
+   "lat": -15.823218,
+   "lng": -48.153033,
+   "risco": "Enxurrada, alagamento, erosão e movimentação de massa",
+   "classe": "Alto",
+   "res": 4,
+   "pes": 16
+  },
+  {
+   "n": 22,
+   "ra": "Sol Nascente e Pôr do Sol",
+   "end": "Chácara 36, Vila Madureira",
+   "lat": -15.839492,
+   "lng": -48.136291,
+   "risco": "Enxurrada, alagamento, erosão e movimentação de massa",
+   "classe": "Alto",
+   "res": 25,
+   "pes": 100
+  },
+  {
+   "n": 23,
+   "ra": "Vicente Pires",
+   "end": "Chácara 229, Vila São José",
+   "lat": -15.805129,
+   "lng": -48.052554,
+   "risco": "Enxurrada, alagamento, erosão e movimentação de massa",
+   "classe": "Alto",
+   "res": 20,
+   "pes": 80
+  }
+ ]
+}
