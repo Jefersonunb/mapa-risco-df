@@ -908,6 +908,53 @@ details.ra[open] summary::after{content:"–"}
 
 /* ===== modos de visualização ===== */
 [hidden]{display:none!important}
+/* legenda compacta: faixa horizontal baixa */
+.legend{bottom:24px;right:auto;max-width:calc(100% - 96px);display:flex;align-items:center;gap:12px;padding:6px 12px 6px 8px;font-size:12.5px}
+.lg-toggle{appearance:none;display:inline-flex;align-items:center;gap:4px;border:0;background:none;padding:4px 6px;border-radius:6px;cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--green);flex:none}
+.lg-toggle:hover{background:var(--tg)}
+.lg-toggle svg{width:12px;height:12px;transition:transform .15s}
+.legend.collapsed{padding:4px 6px}
+.legend.collapsed .lg-body{display:none}
+.legend.collapsed .lg-toggle svg{transform:rotate(-90deg)}
+.lg-body{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-width:0}
+#lgBase{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#lgBase>div,#lgExtra>*{padding-left:12px;border-left:1px solid var(--line)}
+#lgExtra{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#lgExtra:empty{display:none}
+#lgExtra .eyebrow{font-size:11px;padding-left:12px;border-left:1px solid var(--line)}
+#lgExtra .eyebrow+*{padding-left:0;border-left:0}
+.lg-ty{display:flex;flex-wrap:wrap;gap:4px 10px}
+.lg-ty i{width:20px;height:20px}
+.lg-ty .ico{width:13px;height:13px}
+.lg-size{display:flex;align-items:center;gap:8px}
+.lg-nest{position:relative;flex:none}
+.lg-nest i{position:absolute;bottom:0;left:50%;transform:translateX(-50%);border-radius:50%;border:1.5px solid var(--grey);background:color-mix(in srgb,var(--grey) 8%,transparent)}
+.lg-nest-l{display:grid;line-height:1.25;font-size:12px;color:var(--grey)}
+.lg-nest-l b{font-weight:600;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.legend .lg-scale{display:flex;flex-wrap:wrap;gap:4px 12px}
+.legend .lg-st{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend .lg-zn{display:flex;align-items:center;gap:8px;max-width:none;white-space:nowrap}
+.legend .lg-zn i{flex:none;width:18px;height:18px}
+.legend.is-zonas .lg-size{display:none}
+/* legenda no painel lateral (seção Classificação de risco) */
+.panel .legend{position:static;max-width:none;width:auto;box-shadow:none;background:var(--off);border:1px solid var(--line-2);border-radius:10px;display:grid;gap:6px;padding:8px 10px 10px;font-size:12.5px}
+.panel .legend.collapsed{padding:4px 6px}
+.panel .lg-toggle{justify-self:start;padding:2px 4px;margin-left:-4px;font-size:11px}
+.panel .lg-body{display:grid;gap:8px}
+.panel #lgBase{display:grid;gap:8px}
+.panel #lgBase>div,.panel #lgExtra>*,.panel #lgExtra .eyebrow{padding-left:0;border-left:0}
+.panel #lgExtra{display:grid;gap:6px;padding-top:8px;border-top:1px solid var(--line-2)}
+.panel #lgExtra:empty{display:none}
+.panel .lg-ty{gap:6px 12px}
+.panel .legend .lg-zn{white-space:normal}
+@media (max-width:880px){ .panel .legend{padding:8px 10px} .panel .lg-size{display:flex} }
+@media (max-width:880px){
+  .legend{bottom:22px;max-width:calc(100% - 76px);padding:5px 10px 5px 6px}
+  .lg-body,#lgBase{gap:6px 10px}
+  #lgBase>div,#lgExtra>*{padding-left:0;border-left:0}
+  .lg-size{display:none}
+  .lg-ty{gap:8px}
+}
 .ctl-tl{top:12px;left:max(12px,env(safe-area-inset-left,0px));z-index:600}
 .seg-mode button{display:inline-flex;align-items:center;gap:5px}
 .fab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
@@ -1051,6 +1098,20 @@ td.mx-tot{display:flex;align-items:center;gap:6px;height:30px}
 
       <section class="fset" aria-labelledby="fCls">
         <span class="eyebrow" id="fCls">Classificação de risco</span>
+        <div class="legend" aria-label="Legenda">
+          <button type="button" class="lg-toggle" id="lgToggle" aria-expanded="true" aria-controls="lgBody" title="Mostrar ou recolher a legenda"><span>Legenda</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="lg-body" id="lgBody">
+          <div id="lgBase">
+          <div class="lg-ty" id="lgType"></div>
+          <div class="lg-row">
+            <span><i class="lg-dot" style="--c:var(--crit)"></i>Muito alto</span>
+            <span><i class="lg-dot" style="--c:var(--warn)"></i>Alto</span>
+          </div>
+          <div class="lg-size" id="lgSize"></div>
+          </div>
+          <div id="lgExtra"></div>
+          </div>
+        </div>
         <div class="chips" id="clsChips"></div>
       </section>
 
@@ -1134,18 +1195,6 @@ td.mx-tot{display:flex;align-items:center;gap:6px;height:30px}
     </div>
     <section class="matrix" id="matrix" hidden aria-label="Matriz de ameaças"></section>
     <p class="preview-note" id="previewNote" hidden>Prévia offline: detalhe de rua só ao redor das 23 áreas. No site publicado o mapa carrega em todo o DF e a camada OSM fica ativa.</p>
-    <div class="legend" aria-label="Legenda">
-      <span class="eyebrow">Legenda</span>
-      <div id="lgBase" style="display:grid;gap:8px">
-      <div class="lg-ty" id="lgType"></div>
-      <div class="lg-row">
-        <span><i class="lg-dot" style="--c:var(--crit)"></i>Muito alto</span>
-        <span><i class="lg-dot" style="--c:var(--warn)"></i>Alto</span>
-      </div>
-      <div class="lg-size" id="lgSize"></div>
-      </div>
-      <div id="lgExtra"></div>
-    </div>
   </main>
 </div>
 
@@ -1448,7 +1497,16 @@ function boot(){
   });
 
   // legenda de tamanho
-  document.getElementById("lgSize").innerHTML = [20,200,800].map(function(p){var d=diam(p); return '<span><i style="width:'+d+'px;height:'+d+'px"></i>'+nf.format(p)+'</span>';}).join("") + '<span style="align-self:center;justify-items:start">pessoas<br>afetadas</span>';
+  var dMax = diam(800);
+  document.getElementById("lgSize").innerHTML = '<span class="lg-nest" style="width:'+dMax+'px;height:'+dMax+'px">' + [800,200,20].map(function(p){var d=diam(p); return '<i style="width:'+d+'px;height:'+d+'px"></i>';}).join("") + '</span><span class="lg-nest-l"><b>20 · 200 · 800</b>pessoas</span>';
+  // legenda recolhível (lembrada neste navegador; recolhida por padrão no celular)
+  (function(){
+    var lg = document.querySelector(".legend"), bt = document.getElementById("lgToggle"), saved = null;
+    try { saved = localStorage.getItem("lgPanelCollapsed"); } catch(e) {}
+    function set(c, save){ lg.classList.toggle("collapsed", c); bt.setAttribute("aria-expanded", String(!c)); if (save) { try { localStorage.setItem("lgPanelCollapsed", c ? "1" : "0"); } catch(e) {} } }
+    set(saved === "1", false);
+    bt.addEventListener("click", function(){ set(!lg.classList.contains("collapsed"), true); });
+  })();
 
   // ===== Modos de visualização (inserido em boot) =====
   var EXTRA_FILES = {ras:"data/ras.geojson", a2025:"data/areas-2025.json", erosao:"data/zee-erosao.geojson", drenagem:"data/drenagem.geojson", setores:"data/setores.geojson"};
@@ -1701,7 +1759,7 @@ function boot(){
       return s;
     }
     if (m === "comparar") return '<span class="eyebrow">Situação em 2026</span><div class="lg-st"><span><i class="st st-igual"></i>Sem alteração</span><span><i class="st st-alterada"></i>Alterada</span><span><i class="st st-excluida"></i>Não consta em 2026</span></div>';
-    if (m === "zonas") return '<div class="lg-zn"><i></i><span>Zona indicativa: área ≈ residências × ' + ZONE_M2 + ' m². Não é o perímetro oficial do setor.</span></div>';
+    if (m === "zonas") return '<div class="lg-zn"><i></i><span>Zona indicativa ≈ residências × ' + ZONE_M2 + ' m² <small>(não é o perímetro oficial)</small></span></div>';
     return "";
   }
   function cardFor(m){
@@ -1727,6 +1785,7 @@ function boot(){
     matrixEl.hidden = (m !== "matriz");
     mapwrap.classList.toggle("is-matrix", m === "matriz");
     mapwrap.classList.toggle("is-zonas", m === "zonas");
+    legendEl.classList.toggle("is-zonas", m === "zonas");
     if (m === "zonas" && prev !== "zonas" && map.getZoom() < 15) {
       var tgt = selBefore !== null ? AREAS.filter(function(a){ return a.n === selBefore; })[0] : null;
       if (tgt) map.setView([tgt.dlat, tgt.dlng], 16);
